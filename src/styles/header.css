@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.005rem 3rem;
+
+    background: white;
+    position: sticky;
+    /*faz o elemento ficar grudado na tela quando vc rola*/
+    top: 0;
+    z-index: 1000;
+    /*O z-index controla quem fica na frente e quem fica atrás*/
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.logo img {
+    height: 120px;
+    width: auto;
+    display: block;
+    /*essa img deve se comportar como um bloco*/
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+    margin-right: 2rem;
+}
+
+.nav a {
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #b8895f;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/*responsividade*/
+@media (max-width: 768px) {
+
+    .header {
+        padding: 1rem;
+        position: relative;
+    }
+
+    .logo img {
+        height: 80px;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav.active {
+        display: flex;
+
+        flex-direction: column;
+        gap: 1rem;
+
+        position: absolute;
+        top: 100%;
+        right: 0;
+
+        width: 220px;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+}
